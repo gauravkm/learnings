@@ -24,7 +24,7 @@ public class ClientImpl implements Client {
 
     @Override
     public ListenableFuture<String> processRequest(RequestParams params) {
-        
+
         ListenableFuture<TransportResult> future = _transport.sendRequest(params);
         return Futures.transform(future, new Function<TransportResult, String>() {
             @Override
